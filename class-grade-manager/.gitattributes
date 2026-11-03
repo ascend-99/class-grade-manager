@@ -1,0 +1,23 @@
+* text=auto eol=lf
+
+*.java text
+*.jsp text
+*.jspf text
+*.css text
+*.js text
+*.xml text
+*.md text
+*.yml text
+*.yaml text
+*.properties text
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+
+*.bat text eol=crlf

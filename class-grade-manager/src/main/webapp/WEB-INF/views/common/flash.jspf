@@ -1,0 +1,21 @@
+﻿<c:if test="${not empty sessionScope.flashMessage}">
+    <div class="flash-stack">
+        <div class="alert alert-${empty sessionScope.flashType ? 'info' : sessionScope.flashType}" data-alert role="status">
+            <c:choose>
+                <c:when test="${sessionScope.flashType == 'success'}">
+                    <svg class="icon"><use href="#i-check-circle"></use></svg>
+                </c:when>
+                <c:when test="${sessionScope.flashType == 'error'}">
+                    <svg class="icon"><use href="#i-alert"></use></svg>
+                </c:when>
+                <c:otherwise>
+                    <svg class="icon"><use href="#i-info"></use></svg>
+                </c:otherwise>
+            </c:choose>
+            <div><c:out value="${sessionScope.flashMessage}"/></div>
+            <button type="button" class="alert-close" aria-label="关闭提示">
+                <svg class="icon"><use href="#i-x"></use></svg>
+            </button>
+        </div>
+    </div>
+</c:if>

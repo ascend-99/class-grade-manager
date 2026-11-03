@@ -1,0 +1,22 @@
+﻿<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
+<%@ taglib prefix="fn" uri="jakarta.tags.functions" %>
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
+<c:set var="currentUser" value="${sessionScope.currentUser}"/>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b1220">
+    <meta name="description" content="知衡 · 班级学生成绩管理系统">
+    <title>${empty pageTitle ? '知衡' : pageTitle} · 知衡成绩管理</title>
+    <link rel="icon" type="image/svg+xml" href="${ctx}/assets/img/favicon.svg">
+    <link rel="stylesheet" href="${ctx}/assets/css/app.css">
+    <c:if test="${useCharts}">
+        <script src="${ctx}/assets/js/chart.umd.min.js"></script>
+    </c:if>
+</head>
+<body class="${pageClass}">
+<%@ include file="icons.jspf" %>

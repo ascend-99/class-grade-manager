@@ -1,0 +1,8 @@
+﻿    <footer class="app-footer">
+        <span>知衡 · 让每一份成长都被看见</span>
+        <span>JAVAEE COURSE PROJECT · 2026</span>
+    </footer>
+</div>
+</div>
+<%@ include file="overlays.jspf" %>
+<script src="${ctx}/assets/js/app.js"></script>

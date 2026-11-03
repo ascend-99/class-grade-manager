@@ -1,0 +1,89 @@
+﻿<aside class="sidebar" id="sidebar">
+    <a class="brand" href="${ctx}${currentUser.homePath}" aria-label="知衡首页">
+        <span class="brand-mark">知</span>
+        <span class="brand-text">
+            <strong>知衡</strong>
+            <small>ZHIHENG · GRADE STUDIO</small>
+        </span>
+    </a>
+
+    <div class="sidebar-context">
+        <span>2026–2027 学年</span>
+        <strong>第一学期</strong>
+    </div>
+
+    <nav class="sidebar-nav" aria-label="主导航">
+        <c:choose>
+            <c:when test="${currentUser.teacher}">
+                <p class="nav-label">教学工作台</p>
+                <a class="nav-item ${activeNav == 'dashboard' ? 'active' : ''}" href="${ctx}/dashboard">
+                    <svg class="icon"><use href="#i-grid"></use></svg>
+                    <span>工作台</span>
+                </a>
+                <a class="nav-item ${activeNav == 'entry' ? 'active' : ''}" href="${ctx}/entry">
+                    <svg class="icon"><use href="#i-edit"></use></svg>
+                    <span>成绩录入</span>
+                </a>
+                <a class="nav-item ${activeNav == 'grades' ? 'active' : ''}" href="${ctx}/grades">
+                    <svg class="icon"><use href="#i-list-check"></use></svg>
+                    <span>成绩管理</span>
+                </a>
+                <a class="nav-item ${activeNav == 'history' ? 'active' : ''}" href="${ctx}/grade-history">
+                    <svg class="icon"><use href="#i-clock"></use></svg>
+                    <span>修改记录</span>
+                </a>
+
+                <p class="nav-label">班级与课程</p>
+                <a class="nav-item ${activeNav == 'classes' ? 'active' : ''}" href="${ctx}/classes">
+                    <svg class="icon"><use href="#i-graduation"></use></svg>
+                    <span>班级管理</span>
+                </a>
+                <a class="nav-item ${activeNav == 'students' ? 'active' : ''}" href="${ctx}/students">
+                    <svg class="icon"><use href="#i-users"></use></svg>
+                    <span>学生管理</span>
+                </a>
+                <a class="nav-item ${activeNav == 'courses' ? 'active' : ''}" href="${ctx}/courses">
+                    <svg class="icon"><use href="#i-book"></use></svg>
+                    <span>课程管理</span>
+                </a>
+                <a class="nav-item ${activeNav == 'analytics' ? 'active' : ''}" href="${ctx}/analytics">
+                    <svg class="icon"><use href="#i-chart"></use></svg>
+                    <span>统计分析</span>
+                    <span class="nav-badge">INSIGHT</span>
+                </a>
+            </c:when>
+            <c:otherwise>
+                <p class="nav-label">我的学习</p>
+                <a class="nav-item ${activeNav == 'portal' ? 'active' : ''}" href="${ctx}/portal">
+                    <svg class="icon"><use href="#i-grid"></use></svg>
+                    <span>我的概览</span>
+                </a>
+                <a class="nav-item ${activeNav == 'portal-grades' ? 'active' : ''}" href="${ctx}/portal/grades">
+                    <svg class="icon"><use href="#i-list-check"></use></svg>
+                    <span>我的成绩</span>
+                </a>
+                <a class="nav-item ${activeNav == 'profile' ? 'active' : ''}" href="${ctx}/profile">
+                    <svg class="icon"><use href="#i-user"></use></svg>
+                    <span>个人中心</span>
+                </a>
+            </c:otherwise>
+        </c:choose>
+    </nav>
+
+    <div class="sidebar-bottom">
+        <p class="sidebar-quote">“教育不是灌输，<br>而是点燃火焰。”</p>
+        <div class="sidebar-user">
+            <span class="avatar ${currentUser.avatarColor}">${fn:escapeXml(currentUser.initial)}</span>
+            <div class="sidebar-user-info">
+                <strong><c:out value="${currentUser.displayName}"/></strong>
+                <span>${currentUser.roleLabel} · ${currentUser.teacher ? '教学空间' : '学生空间'}</span>
+            </div>
+            <form method="post" action="${ctx}/logout" class="logout-form">
+                <button type="submit" class="sidebar-logout" title="退出登录" aria-label="退出登录">
+                    <svg class="icon"><use href="#i-logout"></use></svg>
+                </button>
+            </form>
+        </div>
+    </div>
+</aside>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>

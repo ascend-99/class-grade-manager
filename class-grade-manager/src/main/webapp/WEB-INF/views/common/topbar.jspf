@@ -1,0 +1,44 @@
+﻿<header class="topbar">
+    <div class="topbar-left">
+        <button type="button" class="icon-btn menu-toggle" id="menuToggle" aria-label="打开菜单">
+            <svg class="icon"><use href="#i-menu"></use></svg>
+        </button>
+        <div class="topbar-heading">
+            <span class="topbar-eyebrow">${pageEyebrow}</span>
+            <h1 class="topbar-title">${pageTitle}</h1>
+        </div>
+    </div>
+    <div class="topbar-right">
+        <div class="semester-chip">
+            <span class="live-dot"></span>
+            ${semesterLabel}
+        </div>
+        <span class="topbar-date">${todayLabel}</span>
+        <div class="user-menu">
+            <button type="button" class="user-trigger" aria-label="账号菜单">
+                <span class="avatar ${currentUser.avatarColor}">${fn:escapeXml(currentUser.initial)}</span>
+                <span class="user-trigger-copy">
+                    <strong><c:out value="${currentUser.displayName}"/></strong>
+                    <span>${currentUser.roleLabel}</span>
+                </span>
+                <svg class="icon"><use href="#i-chevron-down"></use></svg>
+            </button>
+            <div class="user-dropdown">
+                <div class="dropdown-head">
+                    <strong><c:out value="${currentUser.displayName}"/></strong>
+                    <span>@${fn:escapeXml(currentUser.username)}</span>
+                </div>
+                <a class="dropdown-item" href="${ctx}/profile">
+                    <svg class="icon"><use href="#i-user"></use></svg>
+                    个人中心
+                </a>
+                <form method="post" action="${ctx}/logout">
+                    <button type="submit" class="dropdown-item danger">
+                        <svg class="icon"><use href="#i-logout"></use></svg>
+                        退出登录
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</header>
